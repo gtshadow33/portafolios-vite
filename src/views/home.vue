@@ -37,6 +37,7 @@ import VueTypewriterEffect from "vue-typewriter-effect";
   overflow-x: hidden; 
   padding-bottom: 300px;
   background-color:#F3F0FF ;
+  
 }
 
 /* TEXTO */

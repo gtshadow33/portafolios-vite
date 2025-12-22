@@ -45,11 +45,23 @@ watch(
   padding: 0;
   box-sizing: border-box;
 }
-
+main{
+  background-color: #F3F0FF;
+}
+ 
+body {
+  background-color: #F3F0FF;
+}
 /* Altura completa para layout */
 html, body, #app {
+   background-color: #F3F0FF;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
+
 
 .app-layout {
   display: flex;
@@ -59,7 +71,7 @@ html, body, #app {
 
 main {
   flex: 1; 
-  padding-top: 100px; /* compensa nav fijo */
+  padding-top: 140px; /* compensa nav fijo */
 }
 
 a {

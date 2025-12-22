@@ -2,14 +2,12 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useGithubStore = defineStore('github', () => {
-  const repos = ref([])
-  const loaded = ref(false)
+  const repos = ref(JSON.parse(localStorage.getItem('repos') || '[]'))
+  const loaded = ref(repos.value.length > 0)
   const loading = ref(false)
   const error = ref(null)
 
   async function fetchRepos(username = 'gtshadow33') {
-    if (loaded.value || loading.value) return; 
-
     loading.value = true
     error.value = null
 
@@ -20,6 +18,9 @@ export const useGithubStore = defineStore('github', () => {
 
       repos.value = data.filter(repo => !repo.private)
       loaded.value = true
+
+      // Guardar en localStorage para mantenerlo al refrescar
+      localStorage.setItem('repos', JSON.stringify(repos.value))
     } catch (err) {
       error.value = err.message
     } finally {
