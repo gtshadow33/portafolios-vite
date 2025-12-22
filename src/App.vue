@@ -46,9 +46,20 @@ watch(
   box-sizing: border-box;
 }
 
-html, body, .main-container {
+/* Altura completa para layout */
+html, body, #app {
   height: 100%;
-  margin-bottom: 0%;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 🔑 ocupa toda la altura */
+}
+
+main {
+  flex: 1; 
+  padding-top: 100px; /* compensa nav fijo */
 }
 
 a {
@@ -75,6 +86,7 @@ nav {
   background-color: #4122D8;
   box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1);
   z-index: 1000;
+  justify-content: space-between; /* evita overflow en móvil */
 }
 
 /* CONTENEDOR LINKS DERECHA */
@@ -102,6 +114,15 @@ nav a.router-link-active {
   margin-left: 2vw; 
 }
 
+/* FOOTER */
+footer {
+  background-color: #4122D8;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   nav {
     font-size: 4vw;
@@ -109,10 +130,14 @@ nav a.router-link-active {
     padding: 0 2vw;
   }
 
+  main {
+    padding-top: 100px; /* altura nav mobile */
+  }
+
   #image {
     width: 12vw;
     margin-top: 2vw;
   }
-  
 }
+
 </style>

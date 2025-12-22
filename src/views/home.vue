@@ -26,7 +26,7 @@ import VueTypewriterEffect from "vue-typewriter-effect";
 
 <style scoped>
 .home {
-  padding-top: 16vh;
+  padding-top: 8vh;
   font-family: 'Poppins', Courier, monospace;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -35,6 +35,8 @@ import VueTypewriterEffect from "vue-typewriter-effect";
   width: 100%;
   padding-inline: clamp(1rem, 5vw, 5vw);
   overflow-x: hidden; 
+  padding-bottom: 300px;
+  background-color:#F3F0FF ;
 }
 
 /* TEXTO */
@@ -82,7 +84,7 @@ import VueTypewriterEffect from "vue-typewriter-effect";
 @media (max-width: 768px) {
   .home {
     grid-template-columns: 1fr;
-    padding-top: 13vh;
+    padding-top: 5vh;
     padding-inline: 2vw; 
   }
 
@@ -93,6 +95,9 @@ import VueTypewriterEffect from "vue-typewriter-effect";
   #logo-and-link img {
     max-height: 40vh; 
     width: auto;
+  }
+  #write {
+    height: 3vh;
   }
 }
 
