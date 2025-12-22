@@ -127,12 +127,7 @@ nav a.router-link-active {
 }
 
 /* FOOTER */
-footer {
-  background-color: #4122D8;
-  color: white;
-  text-align: center;
-  padding: 2rem 1rem;
-}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {

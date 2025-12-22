@@ -20,59 +20,70 @@ defineProps({
 
 <style scoped>
 .repo-card {
-    width: 400px;
+  width: 400px;
+  height: auto;
   background-color: #fff;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 0.6rem 1.5rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: 6px 0;
 }
 
 .repo-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .repo-title {
-  font-size: 1.25rem;
+  font-size: 2.3rem;
   font-weight: 700;
-  color: #1f2937; /* gris oscuro */
-  margin-bottom: 0.5rem;
+  color: #1f2937;
+  margin: 0 0 4px 0;
 }
 
 .repo-description {
-  font-size: 1rem;
-  color: #4b5563; /* gris medio */
-  margin-bottom: 0.75rem;
-  min-height: 40px; /* mantiene altura uniforme */
+  font-size: 1rem;          /* tamaño legible */
+  color: #4b5563;
+  margin: 0 0 4px 0;
+          /* estándar futura compatibilidad */
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2rem;      /* altura de línea */
+  max-height: 2.4rem;       /* 2 líneas exactas */
 }
 
+
+
 .repo-language {
-  font-size: 0.875rem;
-  color: #6b7280; /* gris más claro */
-  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0 0 6px 0;
 }
 
 .repo-link {
   display: inline-block;
   text-align: center;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 8px;
   font-weight: 600;
+  font-size: 2rem;
+  background-color: #FFA07A;
+  color: black;
   transition: background 0.3s, transform 0.2s;
 }
 
 .repo-link:hover {
   background: #FF4500;
   transform: translateY(-2px);
+  color: white;
 }
-a{
-    text-decoration: none;
-    background-color: #FFA07A;
-    color: black;
-    font-size: 1vw;
+
+a {
+  text-decoration: none;
 }
 </style>

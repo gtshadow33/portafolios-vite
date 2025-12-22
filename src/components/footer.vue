@@ -13,7 +13,6 @@
         >
           GitHub
         </a>
-
         <a
           href="https://www.linkedin.com/in/jesus-carrasquilla-13017a38a"
           target="_blank"
@@ -23,22 +22,13 @@
         </a>
       </div>
 
-      <!-- Créditos -->
+      <!-- Créditos y copyright -->
       <div class="credits">
-        <p>
-          © {{ new Date().getFullYear() }} · gtshadow33 — 
-          <a href="mailto:gtshadow33@gmail.com">gtshadow33@gmail.com</a>
-        </p>
-        <p class="icons">
-          Los iconos son de:
-          <a
-            href="https://www.flaticon.es"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Flaticon
-          </a>
-        </p>
+        <span>© {{ new Date().getFullYear() }} · gtshadow33 —</span>
+        <a href="mailto:gtshadow33@gmail.com">gtshadow33@gmail.com</a>
+        <span class="icons">
+          Iconos: <a href="https://www.flaticon.es" target="_blank">Flaticon</a>
+        </span>
       </div>
     </div>
   </footer>
@@ -48,27 +38,28 @@
 .footer {
   background-color: #4122D8;
   color: white;
-  padding: 2.5rem 5vw;
-  margin-top: auto;
+  font-family: sans-serif;
+  padding: 3rem 1rem;       /* antes 0.5rem, ahora +60% aprox */
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 /* Redes */
 .social {
   display: flex;
-  gap: 2rem;
+  gap: 0.5rem;
 }
 
 .social a {
   color: white;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 500;
+  font-size: 0.85rem;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
@@ -79,8 +70,12 @@
 
 /* Créditos */
 .credits {
-  text-align: right;
-  font-size: 0.95rem;
+  display: flex;       /* fila */
+  flex-wrap: wrap;     /* ajusta si es muy largo */
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
 }
 
 .credits a {
@@ -89,15 +84,15 @@
 }
 
 .icons {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .footer-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     text-align: center;
+    gap: 0.25rem;
   }
 
   .social {
@@ -105,7 +100,9 @@
   }
 
   .credits {
+    justify-content: center;
     text-align: center;
   }
 }
 </style>
+

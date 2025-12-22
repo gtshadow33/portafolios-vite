@@ -1,9 +1,69 @@
+<script setup>
+import { onMounted, ref, nextTick, watch } from 'vue'
+import RepoCard from '../components/card.vue'
+import gsap from 'gsap'
+
+const repos = ref([])
+const loading = ref(false)
+const error = ref(null)
+const grid = ref(null)
+
+async function fetchRepos(username = 'gtshadow33') {
+  loading.value = true
+  error.value = null
+
+  try {
+    const response = await fetch(
+      `https://api.github.com/users/${username}/repos?per_page=100`
+    )
+
+    if (!response.ok) {
+      throw new Error('Error al obtener repositorios')
+    }
+
+    repos.value = (await response.json()).filter(r => !r.private)
+  } catch (err) {
+    error.value = err.message
+  } finally {
+    loading.value = false
+  }
+}
+
+onMounted(async () => {
+  await fetchRepos()
+})
+
+// 🔹 animar cuando los repos ya estén renderizados
+watch(repos, async (newRepos) => {
+  if (!newRepos.length) return
+  await nextTick()
+  animateCards()
+})
+
+function animateCards() {
+  if (!grid.value) return
+  const cards = grid.value.children
+
+  gsap.fromTo(
+    cards,
+    { y: 50, opacity: 0, scale: 0.8 },
+    {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      duration: 1.2,
+      ease: 'power3.out',
+      stagger: 0.1
+    }
+  )
+}
+</script>
+
 <template>
   <div id="proyects-page">   
     <div class="container">
-      <h1 class="title">Repositorios</h1>
+      <h1 class="title">Mis Proyectos</h1>
 
-      <div v-if="loading" class="info">Cargando...</div>
       <div v-if="error" class="error">{{ error }}</div>
       <div v-if="loaded && repos.length === 0" class="info">No hay repositorios públicos</div>
 
@@ -21,50 +81,16 @@
   </div>
 </template>
 
-<script setup>
-import { onMounted, onUnmounted, nextTick, ref, watch } from 'vue'
-import { useGithubStore } from '../store/store.js'
-import RepoCard from '../components/card.vue'
-import gsap from 'gsap'
-
-const githubStore = useGithubStore()
-const { fetchRepos, repos, loaded, loading, error } = githubStore
-
-const grid = ref(null)
-
-let intervalId = null
-
-onMounted(async () => {
-  await fetchRepos()
-  animateCards() // animar al montar
-
-  
-})
 
 
-// Animación con GSAP
-function animateCards() {
-  nextTick(() => {
-    if (!grid.value) return
-    const cards = grid.value.children
-    gsap.fromTo(
-      cards,
-      { y: 50, opacity: 0, scale: 0.8, rotation: -5 },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        rotation: 0,
-        duration: 2,
-        ease: "power3.out",
-        stagger: 0.1
-      }
-    )
-  })
-}
-</script>
 
 <style scoped>
+
+#proyects-page {
+  padding: 4rem 2rem;
+  background-color: #F3F0FF;
+  min-height: 100vh;
+}
 .container {
   margin: 0 auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
