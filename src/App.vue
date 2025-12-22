@@ -3,6 +3,7 @@ import { ref, watch } from 'vue';
 import { RouterLink, RouterView, useRoute } from 'vue-router';
 import image1 from './assets/image.png';
 import image2 from './assets/trabajo-en-equipo.png';
+import Footer from './components/footer.vue';
 
 const toggle = ref(true);
 const route = useRoute(); // ruta reactiva actual
@@ -18,6 +19,7 @@ watch(
 </script>
 
 <template>
+  <div class="app-layout">
   <nav>
     <RouterLink id="home-link" to="/">GTSHADOW33</RouterLink>
 
@@ -33,6 +35,8 @@ watch(
   <main>
     <RouterView />
   </main>
+  <Footer> </Footer>
+    </div>
 </template>
 
 <style>
@@ -44,6 +48,7 @@ watch(
 
 html, body, .main-container {
   height: 100%;
+  margin-bottom: 0%;
 }
 
 a {
@@ -58,7 +63,7 @@ nav {
   font-size: 4vw; 
   font-weight: 900;
   font-style: italic;
-  height: 100px;
+  height: 140px;
   position: fixed;
   top: 0;
   left: 0;
@@ -95,5 +100,19 @@ nav a.router-link-active {
 /* MÁRGEN DEL HOME */
 #home-link {
   margin-left: 2vw; 
+}
+
+@media (max-width: 768px) {
+  nav {
+    font-size: 4vw;
+    height: 100px;
+    padding: 0 2vw;
+  }
+
+  #image {
+    width: 12vw;
+    margin-top: 2vw;
+  }
+  
 }
 </style>
