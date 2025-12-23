@@ -37,9 +37,8 @@
       mi camino como desarrollador.
     </p>
 
-    <a href="#proyectos" class="projects-btn">
-      Ver proyectos
-    </a>
+    <RouterLink to="/proyects" id="proyecto">Ver proyectos
+    </RouterLink>
   </div>
 </section>
 
@@ -91,29 +90,10 @@ p {
 .closing {
   margin-top: 2rem;
   font-weight: 600;
-  color: #6b45e2; /* color morado destacado para cierre */
+  color: #6b45e2; 
 }
 
-/* Botón */
-.projects-btn {
-  display: inline-block;
-  margin-top: 3rem;
-  padding: 0.9rem 2.6rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #ff6600, #ff8c3a);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 0.03em;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
 
-.projects-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
-}
-
-/* Pequeño detalle: añadir sombra suave a la sección para más profundidad */
 .about::before {
   content: '';
   position: absolute;

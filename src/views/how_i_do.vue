@@ -9,7 +9,7 @@
       :img="skill.img"
     />
 
-    <RouterLink id="buttom" to="/proyects">
+    <RouterLink id="proyecto" to="/proyects">
       Proyectos
     </RouterLink>
   </div>
@@ -54,11 +54,7 @@ onMounted(() => {
   box-sizing: border-box; /* que padding no haga overflow */
 }
 
-a {
-  margin: 70px;
-}
 
-/* Mejora rendimiento de animaciones */
 .skill-card {
   will-change: transform, opacity;
 }

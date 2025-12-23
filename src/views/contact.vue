@@ -6,7 +6,7 @@
     <div class="contact">
       <h1>¿Charlamos?</h1>
       <p>Soy un programador apasionado por crear soluciones eficientes y funcionales, siempre buscando estar entre las mejores opciones en cada proyecto en el que participo. Me especializo en desarrollo web, creación de aplicaciones y automatización de procesos, enfocándome en generar código limpio y optimizado que marque la diferencia. Estoy abierto a nuevos desafíos profesionales y colaboraciones interesantes. Pueden contactarme directamente a través de LinkedIn  o por correo electrónico , estaré encantado de conversar y explorar oportunidades.</p>
-    <RouterLink id="buttom" to="/proyects">
+    <RouterLink id="proyecto" to="/proyects">
     Proyectos
   </RouterLink>
     </div>
@@ -21,23 +21,7 @@
   min-height: 100vh;
   font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
 }
-#buttom {
-  display: inline-block;
-  margin-top: 3rem;
-  padding: 1.5rem 4rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #ff6600, #ff8c3a);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 0.03em;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
 
-#buttom:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
-}
 
 h1{
   font-size: 3rem;
