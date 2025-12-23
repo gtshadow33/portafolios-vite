@@ -17,11 +17,9 @@ defineProps({
   url: String
 })
 </script>
-
 <style scoped>
 .repo-card {
   width: 400px;
-  height: auto;
   background-color: #fff;
   border-radius: 12px;
   padding: 0.6rem 1.5rem;
@@ -43,23 +41,19 @@ defineProps({
   font-weight: 700;
   color: #1f2937;
   margin: 0 0 4px 0;
-    word-break: break-word;
+  word-break: break-word;
   white-space: normal;
 }
 
 .repo-description {
-  font-size: 1rem;          /* tamaño legible */
+  font-size: 1rem;
   color: #4b5563;
   margin: 0 0 4px 0;
-          /* estándar futura compatibilidad */
-  
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.2rem;      /* altura de línea */
-  max-height: 2.4rem;       /* 2 líneas exactas */
+  line-height: 1.4rem; /* mayor separación para legibilidad */
+  overflow: visible;   /* dejar que el contenido se expanda */
+  text-overflow: unset; 
+  display: block;      /* no usar line-clamp */
 }
-
-
 
 .repo-language {
   font-size: 0.85rem;
@@ -93,20 +87,24 @@ a {
 @media (max-width: 768px) {
   .repo-card {
     width: 290px;
+    padding: 0.5rem 1rem;
   }
 
   .repo-title {
-    font-size: 1.5rem; /* reducimos tamaño para que quepa */
+    font-size: 1.5rem;
   }
 
   .repo-description {
     font-size: 0.9rem;
+    line-height: 1.3rem;
   }
 
   .repo-link {
-    font-size: 1.2rem; /* ajuste de botón */
+    font-size: 1.2rem;
     padding: 0.8rem 1.5rem;
   }
 }
-
 </style>
+
+
+
