@@ -1,28 +1,33 @@
 <script setup>
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import { RouterLink } from "vue-router";
 import VueTypewriterEffect from "vue-typewriter-effect";
+import { aleatorioFrase } from "../scripts/frases.js";
+
+
 </script>
 
 <template>
   <div class="home">
     <div id="write">
       <VueTypewriterEffect
-        :strings="['Si no funciona, es porque estás aprendiendo algo nuevo.']"
-        cursor="|"
+        :strings="[aleatorioFrase()]"
         :typeSpeed="50"
         :deleteSpeed="50"
+        cursor="|"
         :loop="true"
         class="typewriter-text"
       />
     </div>
-    
-  
-  <div id ="logo-and-link">
+
+    <div id="logo-and-link">
       <img src="../assets/gato.png" alt="logo" width="200"/>
       <RouterLink to="/proyects">Proyectos</RouterLink>
     </div>
   </div>
 </template>
+
+
 
 <style scoped>
 .home {
@@ -37,7 +42,6 @@ import VueTypewriterEffect from "vue-typewriter-effect";
   overflow-x: hidden; 
   padding-bottom: 300px;
   background-color:#F3F0FF ;
-  
 }
 
 /* TEXTO */
@@ -46,15 +50,18 @@ import VueTypewriterEffect from "vue-typewriter-effect";
 }
 
 .typewriter-text {
+  
   font-weight: 900;
   font-style: italic;
   font-size: clamp(1.5rem, 4vw, 4rem);
   color: black;
-  text-align: justify;
+
   text-align-last: left;
   hyphens: none;
   word-break: normal;
   overflow-wrap: break-word;
+    text-align: left;       /* mejor que justify */  /* evita que el texto haga salto de línea */
+  overflow: hidden;    
 }
 
 /* LOGO + BOTÓN */
@@ -81,11 +88,9 @@ import VueTypewriterEffect from "vue-typewriter-effect";
   text-decoration: none;
 }
 #logo-and-link a:hover {
-
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
 }
-
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -103,9 +108,9 @@ import VueTypewriterEffect from "vue-typewriter-effect";
     max-height: 40vh; 
     width: auto;
   }
+
   #write {
     height: 3vh;
   }
 }
-
 </style>
