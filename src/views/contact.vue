@@ -22,15 +22,21 @@
   font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
 }
 #buttom {
-  font-size: clamp(1.2rem, 3vw, 3rem);
-  font-weight: 600;
-  background-color: #FF6600;
-  border-radius: 33px;
-  padding: 0.4em 2em;
-  color: white;
+  display: inline-block;
+  margin-top: 3rem;
+  padding: 1.5rem 4rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff6600, #ff8c3a);
+  color: #ffffff;
   text-decoration: none;
-  margin-left: 70%;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
+#buttom:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
 }
 
 h1{

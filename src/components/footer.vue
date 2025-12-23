@@ -59,13 +59,14 @@
 .social a {
   color: white;
   font-weight: 500;
-  font-size: 0.85rem;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  font-size: 1.5rem;
 }
 
 .social a:hover {
   opacity: 0.8;
+  
 }
 
 /* Créditos */
@@ -75,7 +76,7 @@
   justify-content: flex-end;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 1.5rem;
 }
 
 .credits a {
@@ -84,7 +85,8 @@
 }
 
 .icons {
-  font-size: 0.7rem;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
 }
 
 /* Responsive */
@@ -92,11 +94,14 @@
   .footer-content {
     flex-direction: column;
     text-align: center;
-    gap: 0.25rem;
+    gap: 1rem;
   }
 
   .social {
     justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    gap: 50px;
   }
 
   .credits {

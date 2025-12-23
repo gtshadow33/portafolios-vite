@@ -80,6 +80,12 @@ import VueTypewriterEffect from "vue-typewriter-effect";
   color: white;
   text-decoration: none;
 }
+#logo-and-link a:hover {
+
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(255, 102, 0, 0.35);
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
