@@ -43,6 +43,8 @@ defineProps({
   font-weight: 700;
   color: #1f2937;
   margin: 0 0 4px 0;
+    word-break: break-word;
+  white-space: normal;
 }
 
 .repo-description {
@@ -86,4 +88,25 @@ defineProps({
 a {
   text-decoration: none;
 }
+
+/* Media query para móviles */
+@media (max-width: 768px) {
+  .repo-card {
+    width: 290px;
+  }
+
+  .repo-title {
+    font-size: 1.5rem; /* reducimos tamaño para que quepa */
+  }
+
+  .repo-description {
+    font-size: 0.9rem;
+  }
+
+  .repo-link {
+    font-size: 1.2rem; /* ajuste de botón */
+    padding: 0.8rem 1.5rem;
+  }
+}
+
 </style>

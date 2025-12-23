@@ -53,5 +53,25 @@ p {
   padding: 10px 1rem;
   padding-bottom: 100px;
 }
+@media (max-width: 768px) {
+  .contact {
+    padding: 2rem 1rem; /* Reducimos el padding en móviles */
+  }
+
+  #buttom {
+    padding: 1rem 2rem; /* Ajustamos el tamaño del botón */
+    font-size: 1rem;    /* Fuente más pequeña */
+  }
+
+  h1 {
+    font-size: 2rem; /* Ajustamos título */
+  }
+
+  p {
+    font-size: 1rem;  /* Texto más legible en pantallas pequeñas */
+    padding-bottom: 50px; /* Reducimos el padding inferior */
+  }
+}
+
 
 </style>

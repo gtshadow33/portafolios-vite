@@ -59,7 +59,7 @@ img{
     text-align: center;
   }
   img{
-    height: 90px;
+    height: 70px;
   }
 }
 </style>

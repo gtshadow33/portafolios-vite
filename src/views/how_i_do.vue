@@ -49,6 +49,9 @@ onMounted(() => {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+    overflow-x: hidden; /* evita scroll lateral */
+  padding: 1rem;       /* espacio interno en móvil */
+  box-sizing: border-box; /* que padding no haga overflow */
 }
 
 a {
