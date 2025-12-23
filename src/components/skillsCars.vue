@@ -25,6 +25,10 @@ defineProps({
 
 
 <style scoped>
+  .skill-title{
+    font-size: 5vh;
+    font-weight: 800;
+  }
 #container{
   display: flex;
   flex-direction: row;
