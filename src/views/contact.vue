@@ -1,6 +1,7 @@
 <script setup>
 
   import { RouterLink } from 'vue-router';
+  import formGoogle from '../components/form-google.vue';
 </script>
 <template>
     <div class="contact">
@@ -10,6 +11,8 @@
     Proyectos
   </RouterLink>
     </div>
+
+    <formGoogle></formGoogle>
 
 </template>
 
