@@ -1,64 +1,121 @@
 <script setup>
-
-  import { RouterLink } from 'vue-router';
-  import formGoogle from '../components/form-google.vue';
+import { RouterLink } from 'vue-router'
+import FormGoogle from '../components/form-google.vue'
 </script>
+
 <template>
-    <div class="contact">
+  <section class="contact">
+    <div class="contact-content">
       <h1>¿Charlamos?</h1>
-      <p>Soy un programador apasionado por crear soluciones eficientes y funcionales, siempre buscando estar entre las mejores opciones en cada proyecto en el que participo. Me especializo en desarrollo web, creación de aplicaciones y automatización de procesos, enfocándome en generar código limpio y optimizado que marque la diferencia. Estoy abierto a nuevos desafíos profesionales y colaboraciones interesantes. Pueden contactarme directamente a través de LinkedIn  o por correo electrónico , estaré encantado de conversar y explorar oportunidades.</p>
-    <RouterLink id="proyecto" to="/proyects">
-    Proyectos
-  </RouterLink>
+
+      <p class="intro">
+        Soy un desarrollador apasionado por crear soluciones digitales eficientes,
+        modernas y bien estructuradas. Trabajo enfocándome en código limpio,
+        escalable y optimizado, buscando siempre aportar valor real en cada proyecto.
+      </p>
+
+      <p class="details">
+        Me especializo en desarrollo web, creación de aplicaciones y automatización
+        de procesos. Si tienes una idea, un proyecto en mente o estás buscando
+        colaboración profesional, puedes escribirme a través del formulario que
+        encontrarás más abajo. Me pondré en contacto contigo lo antes posible.
+      </p>
+
+      <RouterLink class="project-link" to="/proyects">
+        Ver proyectos
+      </RouterLink>
     </div>
+  </section>
 
-    <formGoogle></formGoogle>
-
+  <section class="form-section">
+    <FormGoogle />
+  </section>
 </template>
 
-<style>
+<style scoped>
+/* Sección contacto */
 .contact {
-  height: 60vh;
-  padding: 4rem 2rem;
-  background-color: #F3F0FF;
-  min-height: 100vh;
-  font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #f3f0ff 0%, #ffffff 100%);
+  padding: 6rem 1.5rem;
 }
 
+.contact-content {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-h1{
+/* Título */
+h1 {
   font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
   color: #1f2937;
 }
-p {
-  margin-top: 1.5rem;
-  font-size: 1.25rem;
-  line-height: 1.6;
+
+/* Texto principal */
+.intro {
+  font-size: 1.35rem;
+  line-height: 1.8;
   color: #1f2937;
-  padding: 10px 1rem;
-  padding-bottom: 100px;
+  margin-bottom: 1.8rem;
 }
+
+/* Texto secundario */
+.details {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 3.5rem;
+}
+
+/* CTA proyectos */
+.project-link {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  background: #535bf2;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 25px rgba(83, 91, 242, 0.35);
+  transition: all 0.25s ease;
+}
+
+.project-link:hover {
+  background-color: #ff8c3a;
+  box-shadow: 0 12px 30px rgba(255, 140, 58, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Sección formulario */
+.form-section {
+  padding: 4rem 1.5rem 6rem;
+  background-color: #ffffff;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .contact {
-    padding: 2rem 1rem; /* Reducimos el padding en móviles */
-  }
-
-  #buttom {
-    padding: 1rem 2rem; /* Ajustamos el tamaño del botón */
-    font-size: 1rem;    /* Fuente más pequeña */
-  }
-
   h1 {
-    font-size: 2rem; /* Ajustamos título */
+    font-size: 2.2rem;
   }
 
-  p {
-    font-size: 1rem;  /* Texto más legible en pantallas pequeñas */
-    padding-bottom: 50px; /* Reducimos el padding inferior */
+  .intro {
+    font-size: 1.1rem;
+  }
+
+  .details {
+    font-size: 1rem;
+  }
+
+  .contact {
+    padding: 4rem 1rem;
+  }
+
+  .form-section {
+    padding: 3rem 1rem 4rem;
   }
 }
-
-
 </style>

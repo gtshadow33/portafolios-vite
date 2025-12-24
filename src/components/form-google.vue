@@ -1,18 +1,15 @@
 <template>
   <div class="google-form-wrapper">
-    <button class="btn" @click="toggleForm">
+    <button class="form-button" @click="toggleForm">
       {{ showForm ? 'Cerrar formulario' : 'Contactar' }}
     </button>
 
-    <transition name="fade">
+    <transition name="fade-slide">
       <div v-if="showForm" class="form-container">
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSd8uQcfzFSoT3LHnaAQchtrJOp0t2uuUtbL5-ToLBocTaVStg/viewform?embedded=true"
-          width="100%"
-          height="947"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
+          loading="lazy"
+          allowfullscreen
         >
           Cargando…
         </iframe>
@@ -33,38 +30,69 @@ const toggleForm = () => {
 
 <style scoped>
 .google-form-wrapper {
-  text-align: center;
-  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem auto;
+  max-width: 900px;
+  padding: 0 1rem;
 }
 
-.btn {
-  padding: 0.75rem 1.5rem;
+/* Botón */
+.form-button {
+  background-color: #ff8c3a;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.9rem 2.2rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 999px;
   cursor: pointer;
   font-weight: 600;
-  background-color: #646cff;
-  color: white;
-  transition: background-color 0.2s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
 }
 
-.btn:hover {
+.form-button:hover {
   background-color: #535bf2;
+  transform: translateY(-2px);
 }
 
+.form-button:active {
+  transform: translateY(0);
+}
+
+/* Contenedor del formulario */
 .form-container {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+iframe {
+  width: 100%;
+  height: 950px;
+  border: none;
 }
 
 /* Animación */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.35s ease;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.fade-slide-enter-from,
+.fade-slide-leave-to {
   opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  iframe {
+    height: 1100px;
+  }
 }
 </style>
