@@ -15,7 +15,6 @@ const routes = [
   { path: "/how_i_do", component: how_i_do },
    {
     path: '/how_i_do/:api',
-    name: 'skill-detail',
     component: skillDeatall,
   },
 ]
