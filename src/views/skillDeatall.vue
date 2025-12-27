@@ -3,11 +3,11 @@ import { useRoute } from 'vue-router'
 import { onMounted, ref } from 'vue'
 
 const route = useRoute()
-const url = route.params.name
+const url = route.params.api;
 
-const data = ref(null)
-const loading = ref(true)
-const error = ref(null)
+const data = ref(null);
+const loading = ref(true);
+const error = ref(null);
 
 onMounted(async () => {
   try {
@@ -139,7 +139,7 @@ onMounted(async () => {
   border-radius: 50px;
   font-weight: 600;
   text-align: center;
-  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition:  box-shadow 0.3s, transform 0.3s;
 }
 
 .btn:hover {

@@ -14,7 +14,7 @@ const routes = [
   { path: "/proyects", component: proyects },
   { path: "/how_i_do", component: how_i_do },
    {
-    path: '/how_i_do/:name',
+    path: '/how_i_do/:api',
     name: 'skill-detail',
     component: skillDeatall,
   },
