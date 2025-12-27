@@ -7,6 +7,7 @@
       :title="skill.title"
       :description="skill.description"
       :img="skill.img"
+      :url="skill.url"
     />
 
     <RouterLink id="proyecto" to="/proyects">

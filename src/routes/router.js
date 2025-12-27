@@ -5,6 +5,7 @@ import aboutme from '../views/aboutme.vue'
 import contact from '../views/contact.vue'
 import proyects from '../views/proyects.vue'
 import how_i_do from '../views/how_i_do.vue'
+import skillDeatall from '../views/skillDeatall.vue'  
 
 const routes = [
   { path: '/', component: Home },
@@ -12,6 +13,11 @@ const routes = [
   { path: '/contact', component: contact },
   { path: "/proyects", component: proyects },
   { path: "/how_i_do", component: how_i_do },
+   {
+    path: '/how_i_do/:name',
+    name: 'skill-detail',
+    component: skillDeatall,
+  },
 ]
 
 export const router = createRouter({
