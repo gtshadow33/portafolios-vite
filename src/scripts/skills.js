@@ -51,7 +51,7 @@ export const skills = [
     title: 'Electron',
     description: 'Framework que permite construir aplicaciones de escritorio multiplataforma usando tecnologías web como HTML, CSS y JavaScript.',
     img: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Electron_Software_Framework_Logo.svg',
-    url: 'https://en.wikipedia.org/api/rest_v1/page/summary/Electron_(software_framework)'
+    url: 'https://es.wikipedia.org/api/rest_v1/page/summary/Electron_(software)'
   },
   {
     title: 'HTML & CSS',
