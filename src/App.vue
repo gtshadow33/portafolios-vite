@@ -1,42 +1,63 @@
 <script setup>
-import { ref, watch } from 'vue';
-import { RouterLink, RouterView, useRoute } from 'vue-router';
-import image1 from './assets/image.png';
-import image2 from './assets/trabajo-en-equipo.png';
-import Footer from './components/footer.vue';
+import { ref, watch } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 
-const toggle = ref(true);
-const route = useRoute(); // ruta reactiva actual
+import image1 from './assets/image.png'
+import image2 from './assets/trabajo-en-equipo.png'
+import Footer from './components/footer.vue'
 
-// Watch para actualizar toggle según la ruta
+const toggle = ref(true)
+const menuOpen = ref(false)
+const route = useRoute()
+
+// Cambia imagen según ruta
 watch(
   () => route.path,
   (newPath) => {
-    toggle.value = newPath === '/contact' ? false : true;
+    toggle.value = newPath !== '/contact'
+    menuOpen.value = false // cierra menú al navegar
   }
-  // se ejecuta al montar
-);
+)
 </script>
 
 <template>
   <div class="app-layout">
-  <nav>
-    <RouterLink id="home-link" to="/">GTSHADOW33</RouterLink>
+    <!-- NAV -->
+    <nav>
+      <RouterLink id="home-link" to="/">GTSHADOW33</RouterLink>
 
-    <div class="nav-right">
-      <RouterLink id="about-link" to="/about">Quien soy</RouterLink>
-      <RouterLink id="how_i_do-link" to="/how_i_do">Que se</RouterLink>
-      <RouterLink to="/contact">
-        <img id="image" :src="toggle ? image1 : image2" alt="contactar">
-      </RouterLink>
+      <!-- LINKS DESKTOP -->
+      <div class="nav-right">
+        <RouterLink to="/about">Quien soy</RouterLink>
+        <RouterLink to="/how_i_do">Que sé</RouterLink>
+        <RouterLink to="/contact">
+          <img id="image" :src="toggle ? image1 : image2" alt="contactar" />
+        </RouterLink>
+      </div>
+
+      <!-- BOTÓN HAMBURGUESA -->
+      <button class="hamburger" @click="menuOpen = !menuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- MENÚ LATERAL -->
+    <div class="side-menu" :class="{ open: menuOpen }">
+      <RouterLink to="/" @click="menuOpen = false">Inicio</RouterLink>
+      <RouterLink to="/about" @click="menuOpen = false">Quien soy</RouterLink>
+      <RouterLink to="/how_i_do" @click="menuOpen = false">Que sé</RouterLink>
+      <RouterLink to="/contact" @click="menuOpen = false">Contacto</RouterLink>
     </div>
-  </nav>
-  
-  <main>
-    <RouterView />
-  </main>
-  <Footer> </Footer>
-    </div>
+
+    <!-- CONTENIDO -->
+    <main>
+      <RouterView />
+    </main>
+
+    <Footer />
+  </div>
 </template>
 
 <style>
@@ -45,106 +66,133 @@ watch(
   padding: 0;
   box-sizing: border-box;
 }
-main{
-  background-color: #F3F0FF;
-}
- 
-body {
-  background-color: #F3F0FF;
-}
-/* Altura completa para layout */
-html, body, #app {
-   background-color: #F3F0FF;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
 
+html,
+body,
+#app {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #F3F0FF;
+}
 
 .app-layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 🔑 ocupa toda la altura */
+  min-height: 100vh;
 }
 
+/* MAIN */
 main {
-  flex: 1; 
-  padding-top: 140px; /* compensa nav fijo */
+  flex: 1;
+  padding-top: 140px;
+  background-color: #F3F0FF;
 }
 
+/* LINKS */
 a {
   text-decoration: none;
   color: white;
-  font-family: 'Poppins', sans-serif;
-  min-width: 50px;
 }
 
-/* NAV PRINCIPAL */
+/* NAV */
 nav {
-  font-size: 4vw; 
-  font-weight: 900;
-  font-style: italic;
-  height: 140px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 140px;
+  background-color: #4122D8;
   display: flex;
   align-items: center;
-  gap: 1.2vw; 
-  color: white;
-  background-color: #4122D8;
-  box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1);
+  justify-content: space-between;
+  font-size: 4vw;
+  font-weight: 900;
+  font-style: italic;
   z-index: 1000;
-  justify-content: space-between; /* evita overflow en móvil */
 }
 
-/* CONTENEDOR LINKS DERECHA */
+/* LOGO */
+#home-link {
+  margin-left: 2vw;
+}
+
+/* LINKS DERECHA */
 .nav-right {
   display: flex;
   gap: 4vw;
-  margin-left: auto; 
-  margin-right: 1vw;
   align-items: center;
-}
-
-/* LINK ACTIVO */
-nav a.router-link-active {
-  color: black;
+  margin-right: 2vw;
 }
 
 /* IMAGEN */
 #image {
-  width: 8vw; 
-  margin-top: 1vw;
+  width: 8vw;
 }
 
-/* MÁRGEN DEL HOME */
-#home-link {
-  margin-left: 2vw; 
+/* HAMBURGUESA */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  margin-right: 4vw;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-/* FOOTER */
+.hamburger span {
+  width: 30px;
+  height: 4px;
+  background: white;
+  border-radius: 2px;
+}
 
+/* MENÚ LATERAL */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background-color: #4122D8;
+  padding-top: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.side-menu a {
+  font-size: 6vw;
+  padding-left: 30px;
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   nav {
-    font-size: 4vw;
     height: 100px;
-    padding: 0 2vw;
+    font-size: 5vw;
   }
 
   main {
-    padding-top: 100px; /* altura nav mobile */
+    padding-top: 100px;
+  }
+
+  .nav-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   #image {
     width: 12vw;
-    margin-top: 2vw;
+  }
+
+  .side-menu.open {
+    right: 0;
   }
 }
-
 </style>
