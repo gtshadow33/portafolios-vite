@@ -13,6 +13,7 @@
     "@vueuse/motion": "^3.0.3",
     "gsap": "^3.14.2",
     "pinia": "^3.0.4",
+    "swiper": "^12.0.3",
     "vue": "^3.5.24",
     "vue-router": "^4.6.4",
     "vue-typewriter-effect": "^1.0.1"

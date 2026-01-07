@@ -92,6 +92,7 @@ main {
 a {
   text-decoration: none;
   color: white;
+  transition: color 0.3s;
 }
 
 /* NAV */
@@ -124,9 +125,20 @@ nav {
   margin-right: 2vw;
 }
 
+/* Enlace activo del nav */
+nav a.router-link-active {
+  color: black;
+  font-weight: bold;
+}
+
 /* IMAGEN */
 #image {
   width: 8vw;
+  transition: transform 0.3s;
+}
+
+#image:hover {
+  transform: scale(1.1);
 }
 
 /* HAMBURGUESA */
@@ -166,6 +178,14 @@ nav {
 .side-menu a {
   font-size: 6vw;
   padding-left: 30px;
+  color: white;
+  transition: color 0.3s;
+}
+
+/* Enlace activo del menú lateral */
+.side-menu a.router-link-active {
+  color: #FFD700; /* dorado */
+  font-weight: bold;
 }
 
 /* RESPONSIVE */

@@ -3,6 +3,7 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 import { RouterLink } from "vue-router";
 import VueTypewriterEffect from "vue-typewriter-effect";
 import { aleatorioFrase } from "../scripts/frases.js";
+import spcialitations from "../components/home/spcialitations.vue";
 
 
 </script>
@@ -25,6 +26,8 @@ import { aleatorioFrase } from "../scripts/frases.js";
       <RouterLink to="/proyects">Proyectos</RouterLink>
     </div>
   </div>
+
+  <spcialitations />
 </template>
 
 
