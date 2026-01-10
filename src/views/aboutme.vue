@@ -34,18 +34,13 @@
 
 <style scoped>
 .about {
+  margin-top: 0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 4rem 1.5rem;
-  background: radial-gradient(
-      circle at top,
-      rgba(107, 69, 226, 0.15),
-      transparent 60%
-    ),
-    #F3F0FF;
-  color: black;
+
 }
 
 .content {

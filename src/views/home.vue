@@ -4,6 +4,7 @@ import { RouterLink } from "vue-router";
 import VueTypewriterEffect from "vue-typewriter-effect";
 import { aleatorioFrase } from "../scripts/frases.js";
 import spcialitations from "../components/home/spcialitations.vue";
+import abaoutme from "../components/home/abaoutme.vue";
 
 
 </script>
@@ -28,6 +29,7 @@ import spcialitations from "../components/home/spcialitations.vue";
   </div>
 
   <spcialitations />
+  <abaoutme/>
 </template>
 
 

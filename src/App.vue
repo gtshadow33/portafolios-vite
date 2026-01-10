@@ -31,7 +31,7 @@ watch(
         <RouterLink to="/about">Quien soy</RouterLink>
         <RouterLink to="/how_i_do">Que sé</RouterLink>
         <RouterLink to="/contact">
-          <img id="image" :src="toggle ? image1 : image2" alt="contactar" />
+          <img id="nav-image" :src="toggle ? image1 : image2" alt="contactar" />
         </RouterLink>
       </div>
 
@@ -51,7 +51,7 @@ watch(
       <RouterLink to="/contact" @click="menuOpen = false">Contacto</RouterLink>
     </div>
 
-    <!-- CONTENIDO -->
+    <!-- CONTENIDO PRINCIPAL -->
     <main>
       <RouterView />
     </main>
@@ -61,20 +61,20 @@ watch(
 </template>
 
 <style>
+/* RESET BÁSICO */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body,
-#app {
+html, body, #app {
   height: 100%;
   font-family: 'Poppins', sans-serif;
   background-color: #F3F0FF;
 }
 
+/* LAYOUT PRINCIPAL */
 .app-layout {
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@ main {
   background-color: #F3F0FF;
 }
 
-/* LINKS */
+/* ENLACES */
 a {
   text-decoration: none;
   color: white;
@@ -101,12 +101,13 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 140px;
+  height: 100px;
   background-color: #4122D8;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  font-size: 4vw;
+  align-items: center;
+  padding: 0 2vw;
+  font-size: 3.5vw;
   font-weight: 900;
   font-style: italic;
   z-index: 1000;
@@ -114,15 +115,14 @@ nav {
 
 /* LOGO */
 #home-link {
-  margin-left: 2vw;
+  font-size: 1.5em;
 }
 
 /* LINKS DERECHA */
 .nav-right {
   display: flex;
-  gap: 4vw;
   align-items: center;
-  margin-right: 2vw;
+  gap: 4vw;
 }
 
 /* Enlace activo del nav */
@@ -132,21 +132,21 @@ nav a.router-link-active {
 }
 
 /* IMAGEN */
-#image {
-  width: 8vw;
+#nav-image {
+  width: 5vw;
+  margin-top: 30px;
   transition: transform 0.3s;
 }
 
-#image:hover {
+#nav-image:hover {
   transform: scale(1.1);
 }
 
-/* HAMBURGUESA */
+/* BOTÓN HAMBURGUESA */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 6px;
-  margin-right: 4vw;
   background: none;
   border: none;
   cursor: pointer;
@@ -175,6 +175,10 @@ nav a.router-link-active {
   z-index: 999;
 }
 
+.side-menu.open {
+  right: 0;
+}
+
 .side-menu a {
   font-size: 6vw;
   padding-left: 30px;
@@ -184,15 +188,15 @@ nav a.router-link-active {
 
 /* Enlace activo del menú lateral */
 .side-menu a.router-link-active {
-  color: #FFD700; /* dorado */
+  color: #FFD700;
   font-weight: bold;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   nav {
-    height: 100px;
     font-size: 5vw;
+    padding: 0 4vw;
   }
 
   main {
@@ -207,12 +211,8 @@ nav a.router-link-active {
     display: flex;
   }
 
-  #image {
+  #nav-image {
     width: 12vw;
-  }
-
-  .side-menu.open {
-    right: 0;
   }
 }
 </style>
