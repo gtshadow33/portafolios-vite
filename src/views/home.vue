@@ -5,6 +5,7 @@ import VueTypewriterEffect from "vue-typewriter-effect";
 import { aleatorioFrase } from "../scripts/frases.js";
 import spcialitations from "../components/home/spcialitations.vue";
 import abaoutme from "../components/home/abaoutme.vue";
+import objetcives2026 from "../components/home/objectives.vue"
 
 
 </script>
@@ -30,6 +31,7 @@ import abaoutme from "../components/home/abaoutme.vue";
 
   <spcialitations />
   <abaoutme/>
+  <objetcives2026/>
 </template>
 
 

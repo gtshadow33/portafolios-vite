@@ -97,6 +97,7 @@ a {
 
 /* NAV */
 nav {
+
   position: fixed;
   top: 0;
   left: 0;
@@ -134,8 +135,8 @@ nav a.router-link-active {
 /* IMAGEN */
 #nav-image {
   width: 5vw;
-  margin-top: 30px;
   transition: transform 0.3s;
+  margin-top: 1vw;
 }
 
 #nav-image:hover {
