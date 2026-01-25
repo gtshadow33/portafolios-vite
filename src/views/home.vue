@@ -6,6 +6,7 @@ import { aleatorioFrase } from "../scripts/frases.js";
 import spcialitations from "../components/home/spcialitations.vue";
 import abaoutme from "../components/home/abaoutme.vue";
 import objetcives2026 from "../components/home/objectives.vue"
+import contactame from "../components/home/contactame.vue";
 
 
 </script>
@@ -32,6 +33,8 @@ import objetcives2026 from "../components/home/objectives.vue"
   <spcialitations />
   <abaoutme/>
   <objetcives2026/>
+  <contactame/>
+  
 </template>
 
 
