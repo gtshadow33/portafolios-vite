@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import ui from "../../assets/ui.jpg";
 
 const items = [
@@ -21,24 +21,29 @@ const items = [
 ];
 
 const active = ref(0);
+let interval;
 
 onMounted(() => {
-  setInterval(() => {
+  interval = setInterval(() => {
     active.value = (active.value + 1) % items.length;
   }, 4000);
+});
+
+onUnmounted(() => {
+  clearInterval(interval);
 });
 </script>
 
 <template>
   <section class="activity">
-    <div class="image">
-      <img
-        :src="items[active].image"
-        :key="items[active].image"
-        alt="actividad"
-      />
-    </div>
+    <!-- IMAGE AS BACKGROUND -->
+    <div
+      class="image"
+      :key="items[active].image"
+      :style="{ backgroundImage: `url(${items[active].image})` }"
+    />
 
+    <!-- CONTENT -->
     <div class="content">
       <h2>{{ items[active].title }}</h2>
       <p>{{ items[active].text }}</p>
@@ -61,26 +66,33 @@ onMounted(() => {
   gap: clamp(2rem, 6vw, 6rem);
   padding: clamp(3rem, 8vw, 8rem);
   align-items: center;
-  background: #F3F0FF;
+  background: #f3f0ff;
 }
 
 /* IMAGE */
 .image {
+  width: 100%;
+  min-height: 420px;
   border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.2);
-}
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
 
-.image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   animation: fade 0.6s ease;
 }
 
 @keyframes fade {
-  from { opacity: 0.4; transform: scale(1.03); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0.4;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* TEXT */
@@ -111,17 +123,13 @@ onMounted(() => {
 }
 
 .progress span.active {
-  background: #FF6600;
+  background: #ff6600;
 }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .activity {
     grid-template-columns: 1fr;
-  }
-
-  .content {
-    text-align: left;
   }
 }
 </style>
