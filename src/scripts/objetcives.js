@@ -1,5 +1,5 @@
 export const objetivos2026 = [
-    {tech: "c", progress: 60},
+    {tech: "c", progress: 61},
   { tech: "C#", progress: 70 },
   { tech: "ASP.NET", progress: 60 },
   { tech: "Vue.js", progress: 70 },
