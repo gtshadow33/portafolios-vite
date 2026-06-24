@@ -39,7 +39,7 @@
   background-color: #4122D8;
   color: white;
   font-family: sans-serif;
-  padding: 3rem 1rem;       /* antes 0.5rem, ahora +60% aprox */
+  padding: 1rem 0.5rem;       /* antes 0.5rem, ahora +60% aprox */
 }
 
 .footer-content {
